@@ -17,23 +17,28 @@
 spawnerFormDefaults:
   image:
     # The container Image for the user's Jupyter Notebook
-    value: kubeflownotebookswg/jupyter-scipy:v1.6.1
+    # value: kubeflownotebookswg/jupyter-scipy:v1.6.1
+    value: brineylab/kubeflow-deeplearning:latest
     # The list of available standard container Images
     options:
-    - kubeflownotebookswg/jupyter-scipy:v1.6.1
-    - kubeflownotebookswg/jupyter-pytorch-full:v1.6.1
-    - kubeflownotebookswg/jupyter-pytorch-cuda-full:v1.6.1
-    - kubeflownotebookswg/jupyter-tensorflow-full:v1.6.1
-    - kubeflownotebookswg/jupyter-tensorflow-cuda-full:v1.6.1
+      - brineylab/kubeflow-deeplearning:latest
+      - brineylab/kubeflow-datascience:latest
+      - kubeflownotebookswg/jupyter-scipy:v1.6.1
+      - kubeflownotebookswg/jupyter-pytorch-full:v1.6.1
+      - kubeflownotebookswg/jupyter-pytorch-cuda-full:v1.6.1
+      - kubeflownotebookswg/jupyter-tensorflow-full:v1.6.1
+      - kubeflownotebookswg/jupyter-tensorflow-cuda-full:v1.6.1
   imageGroupOne:
     # The container Image for the user's Group One Server
     # The annotation `notebooks.kubeflow.org/http-rewrite-uri: /`
     # is applied to notebook in this group, configuring
     # the Istio rewrite for containers that host their web UI at `/`
-    value: kubeflownotebookswg/codeserver-python:v1.6.1
+    # value: kubeflownotebookswg/codeserver-python:v1.6.1
+    value: brineylab/kubeflow-codeserver:latest
     # The list of available standard container Images
     options:
-    - kubeflownotebookswg/codeserver-python:v1.6.1
+      - brineylab/kubeflow-codeserver:latest
+      - kubeflownotebookswg/codeserver-python:v1.6.1
   imageGroupTwo:
     # The container Image for the user's Group Two Server
     # The annotation `notebooks.kubeflow.org/http-rewrite-uri: /`
@@ -45,7 +50,7 @@ spawnerFormDefaults:
     value: kubeflownotebookswg/rstudio-tidyverse:v1.6.1
     # The list of available standard container Images
     options:
-    - kubeflownotebookswg/rstudio-tidyverse:v1.6.1
+      - kubeflownotebookswg/rstudio-tidyverse:v1.6.1
   # If true, hide registry and/or tag name in the image selection dropdown
   hideRegistry: true
   hideTag: false
@@ -58,7 +63,7 @@ spawnerFormDefaults:
     readOnly: false
   cpu:
     # CPU for user's Notebook
-    value: '0.5'
+    value: "0.5"
     # Factor by with to multiply request to calculate limit
     # if no limit is set, to disable set "none"
     limitFactor: "1.2"
@@ -80,13 +85,13 @@ spawnerFormDefaults:
       mount: /home/jovyan
       newPvc:
         metadata:
-          name: '{notebook-name}-workspace'
+          name: "{notebook-name}-workspace"
         spec:
           resources:
             requests:
               storage: 10Gi
           accessModes:
-          - ReadWriteOnce
+            - ReadWriteOnce
     readOnly: false
   dataVolumes:
     # List of additional Data Volumes to be attached to the user's Notebook
@@ -115,10 +120,10 @@ spawnerFormDefaults:
       num: "none"
       # Determines what the UI will show and send to the backend
       vendors:
-      - limitsKey: "nvidia.com/gpu"
-        uiName: "NVIDIA"
-      - limitsKey: "amd.com/gpu"
-        uiName: "AMD"
+        - limitsKey: "nvidia.com/gpu"
+          uiName: "NVIDIA"
+        - limitsKey: "amd.com/gpu"
+          uiName: "AMD"
       # Values: "" or a `limits-key` from the vendors list
       vendor: ""
     readOnly: false
