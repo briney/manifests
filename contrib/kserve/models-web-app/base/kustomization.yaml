@@ -1,8 +1,8 @@
 resources:
-- rbac.yaml
-- service.yaml
-- deployment.yaml
-- istio.yaml
+  - rbac.yaml
+  - service.yaml
+  - deployment.yaml
+  - istio.yaml
 
 namespace: kserve
 
@@ -11,10 +11,11 @@ commonLabels:
   app.kubernetes.io/component: kserve-models-web-app
 
 images:
-- name: kserve/models-web-app
-  newName: kserve/models-web-app
-  newTag: v0.10.0
+  - name: kserve/models-web-app
+    newName: kserve/models-web-app
+    newTag: v0.10.0
 configMapGenerator:
   - name: kserve-models-web-app-config
     literals:
-    - APP_DISABLE_AUTH="True"
+      - APP_DISABLE_AUTH="True"
+      - APP_SECURE_COOKIES=false
