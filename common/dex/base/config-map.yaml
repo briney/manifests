@@ -22,7 +22,7 @@ data:
       hash: $2y$12$Lbq1Rq7Sb.bmR6OsyZXPyemJrUslwJ.8S8zH9QqiGmAn5DxLn0I5i
       # https://github.com/dexidp/dex/pull/1601/commits
       # FIXME: Use hashFromEnv instead
-      username: user
+      username: brineylab
       userID: "15841185641784"
     staticClients:
     # https://github.com/dexidp/dex/pull/1664
