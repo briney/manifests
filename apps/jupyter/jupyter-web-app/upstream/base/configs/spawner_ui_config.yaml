@@ -82,7 +82,7 @@ spawnerFormDefaults:
     # Workspace Volume to be attached to user's Notebook
     # If you don't want a workspace volume then delete the 'value' key
     value:
-      mount: /home/brineylab
+      mount: /home/jovyan
       newPvc:
         metadata:
           name: "{notebook-name}-workspace"
@@ -98,21 +98,21 @@ spawnerFormDefaults:
     value: []
     # For example, a list with 2 Data Volumes:
     # value:
-    #   - mount: /home/jovyan/datavol-1
-    #     newPvc:
-    #       metadata:
-    #         name: '{notebook-name}-datavol-1'
-    #       spec:
-    #         resources:
-    #           requests:
-    #             storage: 5Gi
-    #         accessModes:
-    #           - ReadWriteOnce
-    #   - mount: /home/jovyan/datavol-1
+    #   # - mount: /home/jovyan/datavol-1
+    #   #   newPvc:
+    #   #     metadata:
+    #   #       name: '{notebook-name}-datavol-1'
+    #   #     spec:
+    #   #       resources:
+    #   #         requests:
+    #   #           storage: 5Gi
+    #   #       accessModes:
+    #   #         - ReadWriteOnce
+    #   - mount: /home/jovyan/brineylab_shared
     #     existingSource:
     #       persistentVolumeClaim:
-    #         claimName: test-pvc
-    readOnly: false
+    #         claimName: brineylab-shared
+    # readOnly: false
   gpus:
     # Number of GPUs to be assigned to the Notebook Container
     value:
