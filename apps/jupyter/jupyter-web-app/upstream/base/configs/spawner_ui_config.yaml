@@ -18,9 +18,11 @@ spawnerFormDefaults:
   image:
     # The container Image for the user's Jupyter Notebook
     # value: kubeflownotebookswg/jupyter-scipy:v1.6.1
-    value: brineylab/kubeflow-deeplearning:latest
+    value: brineylab/kubeflow-deeplearning:v2023-11-07
     # The list of available standard container Images
     options:
+      - brineylab/kubeflow-deeplearning:v2023-11-07
+      - brineylab/kubeflow-datascience:v2023-11-07
       - brineylab/kubeflow-deeplearning:latest
       - brineylab/kubeflow-datascience:latest
       - kubeflownotebookswg/jupyter-scipy:v1.6.1
@@ -34,9 +36,10 @@ spawnerFormDefaults:
     # is applied to notebook in this group, configuring
     # the Istio rewrite for containers that host their web UI at `/`
     # value: kubeflownotebookswg/codeserver-python:v1.6.1
-    value: brineylab/kubeflow-codeserver:latest
+    value: brineylab/kubeflow-codeserver:v2023-11-07
     # The list of available standard container Images
     options:
+      - brineylab/kubeflow-codeserver:v2023-11-07
       - brineylab/kubeflow-codeserver:latest
       - kubeflownotebookswg/codeserver-python:v1.6.1
   imageGroupTwo:
