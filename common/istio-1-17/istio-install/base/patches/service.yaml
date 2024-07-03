@@ -4,7 +4,8 @@ metadata:
   name: istio-ingressgateway
   namespace: istio-system
 spec:
-  type: NodePort
-  ports:
-    - port: 80
-      nodePort: 32151
+  type: ClusterIP
+  # type: NodePort
+  # ports:
+  #   - port: 80
+  #     nodePort: 32151
